@@ -15,8 +15,8 @@ def MembershipApi(request, id=0):
       print(member.MemberCountry)
       # member_serializer = MemberSerializer(data=member)
       if member.MemberCountry:
-          return JsonResponse("This is a valid member ID.")
-      return JsonResponse("This is not a valid member ID.")
+          return JsonResponse("This is a valid member ID.",safe=False)
+      return JsonResponse("This is not a valid member ID.",safe=False)
   elif request.method=='POST':
       member_data = JSONParser().parse(request)
       member_serializer = MemberSerializer(data=member_data)
